@@ -12,7 +12,16 @@ function errorHandler(error) {
   console.log('Error occured', error);
   alert('something went wrong')
 }
-
+translateButton.addEventListener('click',clickHandler);
+function clickHandler() {
+  let inputvalue = inputBox.value;
+  fetch(getTranslateUrl(inputvalue))
+  .then(json => {
+    let translated = json.contents.translated;
+    outputBox.innerHTML = translated;
+    
+  })
+}
 translateButton.addEventListener('click',clickHandler);
 
 function clickHandler() {
